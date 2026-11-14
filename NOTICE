@@ -1,0 +1,9 @@
+autz — motor de detección de control de acceso roto (IDOR/BOLA/BAC).
+
+SPDX-License-Identifier: MIT
+Copyright (c) 2026 Isaza Arenas.
+
+Autoría legal: Isaza Arenas. "Xiliux" es una marca de software, no persona
+jurídica. El predicado de detección deriva de la metodología DEFENSIVA propia
+(un control de acceso correcto responde 404 —nunca 403— al recurso ajeno),
+invertida como detector.

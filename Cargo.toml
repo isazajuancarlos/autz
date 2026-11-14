@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: MIT
+[package]
+name = "autz"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+license = "MIT"
+authors = ["Isaza Arenas"]
+description = "Motor headless de detección de control de acceso roto (IDOR / BOLA / BAC) por diffing de respuestas entre identidades, más evasión de 401/403. Lógica pura + driver HTTP; sin GUI, sin orquestador."
+readme = "README.md"
+keywords = ["security", "idor", "bola", "access-control", "bugbounty"]
+categories = ["web-programming", "authentication"]
+
+# Puerta de buenas prácticas por DEFECTO. Solo `deny` porque el CI corre
+# `-D warnings`: aquí solo entra lo que se está dispuesto a BLOQUEAR.
+[lints.clippy]
+redundant_clone = "deny"    # clon innecesario (rendimiento)
+needless_collect = "deny"   # `.collect()` para volver a iterar (rendimiento)
+
+[dependencies]
+reqwest = { version = "0.13", default-features = false, features = ["rustls"] }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+axum = { version = "0.8", default-features = false, features = ["http1", "tokio"] }
